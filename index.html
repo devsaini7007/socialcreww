@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ft. Social Crew</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FF6699'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* Base Transition for Theme Switching */
+        body {
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+        /* Custom scrollbar hiding for clean UI if needed */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        .dark ::-webkit-scrollbar-thumb {
+            background: #334155;
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-[#FFF8F4] dark:bg-[#111111] text-[#111111] dark:text-[#FDFDFD] font-sans selection:bg-[#FF6699] selection:text-white transition-colors duration-500">
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-transparent py-6 border-b border-transparent">
+        <div class="max-w-[1200px] mx-auto px-6 md:px-12 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-2 cursor-pointer group text-[#111111] dark:text-[#FDFDFD]">
+                <span class="font-bold text-2xl tracking-tight">Ft. Social Crew</span>
+            </a>
+            
+            <!-- Desktop Links -->
+            <div class="hidden md:flex items-center space-x-10">
+                <a href="#about" class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors">About</a>
+                <a href="#expertise" class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors">Expertise</a>
+                <a href="#impact" class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors">Impact</a>
+                <a href="#work" class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors">Work</a>
+            </div>
+
+            <!-- Desktop Actions -->
+            <div class="hidden md:flex items-center gap-4">
+                <button class="theme-toggle p-2 rounded-full bg-white dark:bg-[#222] border border-gray-200 text-[#111] dark:border-white/10 dark:text-white transition-all duration-300 hover:scale-105" aria-label="Toggle Theme">
+                    <i data-lucide="moon" class="w-[18px] h-[18px] text-gray-600 dark:hidden"></i>
+                    <i data-lucide="sun" class="w-[18px] h-[18px] text-yellow-400 hidden dark:block"></i>
+                </button>
+                <a href="#contact" class="px-6 py-2.5 bg-[#111] dark:bg-white text-white dark:text-[#111] hover:bg-gray-800 dark:hover:bg-gray-200 text-sm font-semibold transition-colors rounded-full flex items-center gap-2">
+                    Talk to Us
+                </a>
+            </div>
+
+            <!-- Mobile Actions -->
+            <div class="flex md:hidden items-center gap-4">
+                <button class="theme-toggle p-2 rounded-full bg-white dark:bg-[#222] border border-gray-200 text-[#111] dark:border-white/10 dark:text-white transition-all duration-300 hover:scale-105">
+                    <i data-lucide="moon" class="w-[18px] h-[18px] text-gray-600 dark:hidden"></i>
+                    <i data-lucide="sun" class="w-[18px] h-[18px] text-yellow-400 hidden dark:block"></i>
+                </button>
+                <button id="menu-btn" class="text-[#111111] dark:text-[#FDFDFD]">
+                    <i data-lucide="menu" class="w-7 h-7"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="md:hidden absolute top-full left-0 w-full bg-[#FFF8F4] dark:bg-[#111111] border-b border-gray-200/80 dark:border-white/10 transition-all duration-300 overflow-hidden max-h-0 py-0">
+            <div class="flex flex-col space-y-4 px-6 text-center pb-6">
+                <a href="#about" class="mobile-link font-bold text-xl text-[#111111] dark:text-[#FDFDFD] hover:text-[#FF6699] py-2">About</a>
+                <a href="#expertise" class="mobile-link font-bold text-xl text-[#111111] dark:text-[#FDFDFD] hover:text-[#FF6699] py-2">Expertise</a>
+                <a href="#impact" class="mobile-link font-bold text-xl text-[#111111] dark:text-[#FDFDFD] hover:text-[#FF6699] py-2">Impact</a>
+                <a href="#work" class="mobile-link font-bold text-xl text-[#111111] dark:text-[#FDFDFD] hover:text-[#FF6699] py-2">Work</a>
+                <a href="#contact" class="mobile-link font-bold text-xl text-[#FF6699] py-2 mt-4">Talk to Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-24 md:pt-48 md:pb-32 px-6 md:px-12 max-w-[1200px] mx-auto overflow-hidden relative" id="about">
+        <div class="flex flex-col lg:flex-row items-center justify-between gap-16">
+            <!-- Left Text -->
+            <div class="w-full lg:w-[55%] flex flex-col items-start relative z-10">
+                <h1 class="text-[12vw] md:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight mb-8 text-[#111111] dark:text-[#FDFDFD]">
+                    We Turn <br />
+                    <span id="scramble-text" class="inline-block text-[#FF6699]">Algorithms</span><br />
+                    Into Your <br />
+                    Unfair Advantage.
+                </h1>
+                <p class="text-gray-600 dark:text-gray-400 text-lg md:text-xl font-medium max-w-md mb-10 leading-relaxed">
+                    We simplify your marketing endeavors and unleash the full potential of your brand through scroll-stopping content.
+                </p>
+                <a href="#expertise" class="flex items-center text-sm font-bold tracking-widest uppercase cursor-pointer group hover:text-[#FF6699] transition-colors">
+                    EXPLORE EXPERTISE 
+                    <i data-lucide="arrow-up-right" class="ml-2 w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
+                </a>
+            </div>
+
+            <!-- Right Graphic -->
+            <div class="w-full lg:w-[45%] flex justify-center lg:justify-end relative mt-10 lg:mt-0">
+                <div class="relative w-72 h-72 md:w-[400px] md:h-[400px]">
+                    <div class="absolute inset-0 bg-[#FF6699] rounded-full shadow-sm flex items-center justify-center">
+                        <i data-lucide="megaphone" class="w-[140px] h-[140px] text-white transform -rotate-12" stroke-width="1.5"></i>
+                    </div>
+                    
+                    <div class="absolute -top-4 -left-8 md:top-4 md:-left-12">
+                        <i data-lucide="sparkles" class="w-[60px] h-[60px] text-[#111111] dark:text-[#FDFDFD]" stroke-width="1"></i>
+                    </div>
+                    <div class="absolute bottom-10 -left-6 bg-white dark:bg-[#1A1A1A] p-3 rounded-full shadow-md border border-gray-200/80 dark:border-white/10">
+                        <i data-lucide="heart" class="w-6 h-6 text-[#111111] dark:text-[#FDFDFD] fill-current"></i>
+                    </div>
+                    <div class="absolute top-1/4 -right-4 bg-white dark:bg-[#1A1A1A] p-4 rounded-full shadow-md border border-gray-200/80 dark:border-white/10">
+                        <i data-lucide="mouse-pointer-click" class="w-8 h-8 text-[#111111] dark:text-[#FDFDFD]"></i>
+                    </div>
+                    <div class="absolute bottom-4 right-8 w-12 h-12 bg-[#FFD1DF] rounded-full border border-white flex items-center justify-center text-[#111]">
+                        <span class="font-bold text-xs">Ads</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise Section -->
+    <section id="expertise" class="py-24 px-6 md:px-12 w-full bg-white dark:bg-[#1A1A1A] rounded-t-[3rem] border-t border-gray-200/80 dark:border-white/10 transition-colors duration-500">
+        <div class="max-w-[1200px] mx-auto flex flex-col lg:flex-row items-start justify-between gap-16 lg:gap-12">
+            
+            <div class="w-full lg:w-1/3 flex flex-col items-start lg:sticky lg:top-32">
+                <h2 class="text-5xl md:text-6xl font-bold mb-6 leading-[1.1] tracking-tight">
+                    Our<br/>expertise
+                </h2>
+                <p class="text-gray-600 dark:text-gray-400 mb-8 leading-relaxed text-base md:text-lg pr-4 font-medium">
+                    We specialize in crafting tailored strategies that resonate with your audience across all major social platforms.
+                </p>
+                <a href="#contact" class="px-8 py-3.5 rounded-full text-sm font-semibold transition-colors bg-[#111] dark:bg-white text-white dark:text-[#111] hover:bg-gray-800 dark:hover:bg-gray-200">
+                    Learn more
+                </a>
+            </div>
+
+            <div class="w-full lg:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
+                <!-- Card 1 -->
+                <div class="bg-[#FFF8F4] dark:bg-[#222222] rounded-[2rem] p-8 md:p-10 border border-gray-200/80 dark:border-white/10 shadow-sm flex flex-col justify-center min-h-[280px] hover:shadow-md transition-all">
+                    <i data-lucide="message-square" class="w-8 h-8 mb-6 text-[#111111] dark:text-[#FDFDFD]"></i>
+                    <h3 class="text-2xl md:text-3xl font-bold mb-4 tracking-tight">Content Creation</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed font-medium">
+                        High-impact visuals and copy crafted tailored to resonate with your audience.
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-[#FFF8F4] dark:bg-[#222222] rounded-[2rem] p-8 md:p-10 border border-gray-200/80 dark:border-white/10 shadow-sm flex flex-col justify-center min-h-[280px] hover:shadow-md transition-all">
+                    <i data-lucide="target" class="w-8 h-8 mb-6 text-[#111111] dark:text-[#FDFDFD]"></i>
+                    <h3 class="text-2xl md:text-3xl font-bold mb-4 tracking-tight">Social Strategy</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed font-medium">
+                        Strategy is our compass. We map out a clear path leveraging data insights.
+                    </p>
+                </div>
+
+                <!-- Inverted Accent Card -->
+                <div class="bg-[#1a1a1a] text-white dark:bg-white dark:text-[#111] rounded-[2rem] p-8 md:p-10 shadow-md flex flex-col justify-between min-h-[300px] relative overflow-hidden group transition-colors duration-500">
+                    <div class="relative w-full h-16 mb-6 flex items-center justify-between">
+                        <i data-lucide="globe" class="w-10 h-10 transform -rotate-12 group-hover:rotate-0 transition-transform duration-500"></i>
+                        <div class="flex flex-col gap-2.5 mr-2 opacity-90">
+                            <div class="w-12 h-[3px] rounded-full bg-[#FF6699] self-end transform translate-x-2"></div>
+                            <div class="w-16 h-[3px] rounded-full bg-[#FF6699] self-end"></div>
+                            <div class="w-10 h-[3px] rounded-full bg-[#FF6699] self-end transform -translate-x-4"></div>
+                        </div>
+                    </div>
+                    <div class="mt-auto relative z-10 pr-4">
+                        <h3 class="text-2xl md:text-3xl font-bold mb-3 tracking-tight">Website<br/>Development</h3>
+                        <p class="text-sm leading-relaxed text-gray-400 dark:text-gray-600">
+                            We build clean, responsive, and conversion-focused websites.
+                        </p>
+                    </div>
+                    <div class="absolute bottom-8 right-8">
+                        <i data-lucide="arrow-up-right" class="w-6 h-6 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="bg-[#FFF8F4] dark:bg-[#222222] rounded-[2rem] p-8 md:p-10 border border-gray-200/80 dark:border-white/10 shadow-sm flex flex-col justify-center min-h-[280px] hover:shadow-md transition-all">
+                    <i data-lucide="camera" class="w-8 h-8 mb-6 text-[#111111] dark:text-[#FDFDFD]"></i>
+                    <h3 class="text-2xl md:text-3xl font-bold mb-4 tracking-tight">Video & Photos</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed font-medium">
+                        Dive into storytelling. We wield visuals to create immersive experiences.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section id="impact" class="py-24 px-6 md:px-12 w-full bg-[#FFF8F4] dark:bg-[#111111] transition-colors duration-500">
+        <div class="max-w-[1200px] mx-auto">
+            <div class="flex flex-col md:flex-row items-end justify-between mb-16">
+                <h2 class="text-5xl md:text-6xl font-bold tracking-tight">Impact<br/>metrics</h2>
+                <p class="text-gray-600 dark:text-gray-400 font-medium max-w-sm md:text-right mt-6 md:mt-0 leading-relaxed">
+                    Real growth achieved through strategic planning, viral formats, and relentless optimization.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Impact Card 1 -->
+                <div class="group cursor-pointer">
+                    <div class="w-full h-64 md:h-72 rounded-[2rem] bg-[#FFD1DF] mb-6 flex items-center justify-center relative overflow-hidden">
+                        <div class="absolute top-4 right-4 bg-[#111] text-white text-[10px] font-bold px-4 py-1.5 rounded-full uppercase tracking-wider">
+                            0 Ad Spend
+                        </div>
+                        <div class="w-48 h-32 bg-white rounded-2xl shadow-md border-t-8 border-[#FF6699] flex flex-col p-4 transform group-hover:scale-105 transition-transform duration-500">
+                            <div class="flex justify-between items-end h-full px-2">
+                                <div class="w-4 bg-gray-100 rounded-t-sm h-1/3"></div>
+                                <div class="w-4 bg-gray-200 rounded-t-sm h-1/2"></div>
+                                <div class="w-4 bg-[#FF6699] rounded-t-sm h-full"></div>
+                                <div class="w-4 bg-gray-200 rounded-t-sm h-3/4"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="text-4xl font-black mb-2 tracking-tighter text-[#111] dark:text-white">716K+ Views</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed pr-4">
+                        We shifted to a Reels-first strategy. By prioritizing trending formats, <strong>87% of the reach came from non-followers</strong>.
+                    </p>
+                </div>
+
+                <!-- Impact Card 2 -->
+                <div class="group cursor-pointer">
+                    <div class="w-full h-64 md:h-72 rounded-[2rem] bg-[#FFDEB3] mb-6 flex items-center justify-center relative overflow-hidden">
+                        <div class="absolute top-4 right-4 bg-[#111] text-white text-[10px] font-bold px-4 py-1.5 rounded-full uppercase tracking-wider">
+                            +173% Followers
+                        </div>
+                        <div class="w-48 h-32 bg-white rounded-full shadow-md flex items-center px-6 transform group-hover:scale-105 transition-transform duration-500">
+                            <div class="w-12 h-12 rounded-full bg-[#FF9933] text-white flex items-center justify-center font-bold text-xl mr-4">+</div>
+                            <div class="flex-1">
+                                <div class="w-full h-3 bg-gray-200 rounded-full mb-2"></div>
+                                <div class="w-2/3 h-3 bg-gray-100 rounded-full"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="text-4xl font-black mb-2 tracking-tighter text-[#111] dark:text-white">3.3M Reached</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed pr-4">
+                        Posting just 33 strategic pieces tailored to audience intent scaled reach massively, increasing engagement by 69%.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Us / FAQ Section -->
+    <section class="py-24 px-6 md:px-12 w-full bg-white dark:bg-[#1A1A1A] rounded-t-[3rem] transition-colors duration-500">
+        <div class="max-w-[800px] mx-auto">
+            <h2 class="text-5xl font-bold mb-4 tracking-tight text-center">Why choose us?</h2>
+            <p class="text-gray-600 dark:text-gray-400 text-center mb-16 font-medium">
+                Discover how our methodology delivers unfair advantages.
+            </p>
+
+            <div class="space-y-4" id="faq-container">
+                <!-- FAQs will be injected via JS to keep HTML clean -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Grid -->
+    <section id="work" class="py-24 bg-[#FFF8F4] dark:bg-[#111111] transition-colors duration-500">
+        <div class="max-w-[1400px] mx-auto px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold tracking-tight">Glimpses of Creation</h2>
+            </div>
+            <div class="columns-1 md:columns-2 lg:columns-4 gap-6 space-y-6">
+                <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?auto=format&fit=crop&q=80&w=600" alt="Work 1" class="w-full rounded-[2rem] shadow-sm hover:shadow-xl transition-shadow duration-500 border border-gray-200/80 dark:border-white/10" />
+                <img src="https://images.unsplash.com/photo-1616423640778-28d1b53229bd?auto=format&fit=crop&q=80&w=600" alt="Work 2" class="w-full rounded-[2rem] shadow-sm hover:shadow-xl transition-shadow duration-500 border border-gray-200/80 dark:border-white/10" />
+                <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&q=80&w=600" alt="Work 3" class="w-full rounded-[2rem] shadow-sm hover:shadow-xl transition-shadow duration-500 border border-gray-200/80 dark:border-white/10" />
+                <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&q=80&w=600" alt="Work 4" class="w-full rounded-[2rem] shadow-sm hover:shadow-xl transition-shadow duration-500 border border-gray-200/80 dark:border-white/10" />
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-24 px-6 md:px-12 w-full bg-white dark:bg-[#1A1A1A] rounded-[3rem] mx-auto max-w-[1300px] my-12 border border-gray-200/80 dark:border-white/10 shadow-sm transition-colors duration-500">
+        <h2 class="text-4xl md:text-5xl font-bold mb-16 text-center tracking-tight">Cackles of Approval</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-[1000px] mx-auto">
+            <div class="bg-[#FFF8F4] dark:bg-[#222222] rounded-[2rem] p-8 md:p-10 border border-gray-200/80 dark:border-white/10">
+                <div class="flex gap-1 text-[#FF6699] mb-6">
+                    <i data-lucide="star" class="w-5 h-5 fill-current border-0" stroke-width="0"></i>
+                    <i data-lucide="star" class="w-5 h-5 fill-current border-0" stroke-width="0"></i>
+                    <i data-lucide="star" class="w-5 h-5 fill-current border-0" stroke-width="0"></i>
+                    <i data-lucide="star" class="w-5 h-5 fill-current border-0" stroke-width="0"></i>
+                    <i data-lucide="star" class="w-5 h-5 fill-current border-0" stroke-width="0"></i>
+                </div>
+                <p class="text-gray-600 dark:text-gray-400 text-base md:text-lg mb-8 leading-relaxed font-medium">"Working with this team completely changed how my brand shows up online. From content planning to reels and overall page management, everything finally felt structured and intentional."</p>
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-full bg-gray-200 dark:bg-[#333]"></div>
+                    <div>
+                        <p class="font-bold text-sm text-[#111111] dark:text-[#FDFDFD]">Sidharth</p>
+                        <p class="text-gray-500 text-xs">Client</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-[#FFF8F4] dark:bg-[#222222] rounded-[2rem] p-8 md:p-10 border border-gray-200/80 dark:border-white/10">
+                <div class="flex gap-1 text-[#FF6699] mb-6">
+                    <i data-lucide="star" class="w-5 h-5 fill-current border-0" stroke-width="0"></i>
+                    <i data-lucide="star" class="w-5 h-5 fill-current border-0" stroke-width="0"></i>
+                    <i data-lucide="star" class="w-5 h-5 fill-current border-0" stroke-width="0"></i>
+                    <i data-lucide="star" class="w-5 h-5 fill-current border-0" stroke-width="0"></i>
+                    <i data-lucide="star" class="w-5 h-5 fill-current border-0" stroke-width="0"></i>
+                </div>
+                <p class="text-gray-600 dark:text-gray-400 text-base md:text-lg mb-8 leading-relaxed font-medium">"The content quality, aesthetics, and strategy were on another level. Reels started getting more saves and shares, and our page finally looked professional."</p>
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-full bg-gray-200 dark:bg-[#333]"></div>
+                    <div>
+                        <p class="font-bold text-sm text-[#111111] dark:text-[#FDFDFD]">Deeksha</p>
+                        <p class="text-gray-500 text-xs">Client</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Contact -->
+    <footer id="contact" class="pt-24 pb-12 px-6 md:px-12 bg-[#FFF8F4] dark:bg-[#111111] text-sm border-t border-gray-200/80 dark:border-white/10 transition-colors duration-500">
+        <div class="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
+            <div class="md:col-span-5">
+                <h2 class="text-4xl md:text-5xl font-black mb-6 tracking-tight text-[#111111] dark:text-[#FDFDFD]">Ready to Scale?</h2>
+                <p class="text-gray-600 dark:text-gray-400 mb-8 font-medium text-lg max-w-sm">
+                    Stop blending in. Let's build a social presence that dominates your niche.
+                </p>
+                <div class="flex space-x-4">
+                    <a href="https://instagram.com/ft.socialcrew" class="w-12 h-12 rounded-full bg-white dark:bg-[#222] border border-gray-200 dark:border-white/10 text-[#111] dark:text-white flex items-center justify-center hover:bg-[#FF6699] hover:text-white dark:hover:text-white hover:border-[#FF6699] dark:hover:border-[#FF6699] transition-colors">
+                        <i data-lucide="instagram" class="w-5 h-5"></i>
+                    </a>
+                    <a href="mailto:ftsocialcrew@gmail.com" class="w-12 h-12 rounded-full bg-white dark:bg-[#222] border border-gray-200 dark:border-white/10 text-[#111] dark:text-white flex items-center justify-center hover:bg-[#FF6699] hover:text-white dark:hover:text-white hover:border-[#FF6699] dark:hover:border-[#FF6699] transition-colors">
+                        <i data-lucide="mail" class="w-5 h-5"></i>
+                    </a>
+                    <a href="tel:+918851939418" class="w-12 h-12 rounded-full bg-white dark:bg-[#222] border border-gray-200 dark:border-white/10 text-[#111] dark:text-white flex items-center justify-center hover:bg-[#FF6699] hover:text-white dark:hover:text-white hover:border-[#FF6699] dark:hover:border-[#FF6699] transition-colors">
+                        <i data-lucide="phone" class="w-5 h-5"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="md:col-span-2 md:col-start-8">
+                <h4 class="font-bold mb-6 text-base text-[#111111] dark:text-[#FDFDFD]">Solutions</h4>
+                <ul class="text-gray-600 dark:text-gray-400 space-y-4 font-medium">
+                    <li><a href="#expertise" class="hover:text-[#111111] dark:hover:text-[#FDFDFD]">Social Ads</a></li>
+                    <li><a href="#expertise" class="hover:text-[#111111] dark:hover:text-[#FDFDFD]">Content Creation</a></li>
+                    <li><a href="#expertise" class="hover:text-[#111111] dark:hover:text-[#FDFDFD]">Strategy</a></li>
+                    <li><a href="#expertise" class="hover:text-[#111111] dark:hover:text-[#FDFDFD]">Web Dev</a></li>
+                </ul>
+            </div>
+
+            <div class="md:col-span-2">
+                <h4 class="font-bold mb-6 text-base text-[#111111] dark:text-[#FDFDFD]">Company</h4>
+                <ul class="text-gray-600 dark:text-gray-400 space-y-4 font-medium">
+                    <li><a href="#about" class="hover:text-[#111111] dark:hover:text-[#FDFDFD]">About</a></li>
+                    <li><a href="#impact" class="hover:text-[#111111] dark:hover:text-[#FDFDFD]">Case Studies</a></li>
+                    <li><a href="#work" class="hover:text-[#111111] dark:hover:text-[#FDFDFD]">Portfolio</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="max-w-[1200px] mx-auto pt-8 border-t border-gray-200/80 dark:border-white/10 flex flex-col md:flex-row justify-between items-center text-gray-500 font-medium text-xs">
+            <div class="flex items-center gap-2 mb-4 md:mb-0">
+                <span class="font-bold text-sm tracking-tight text-[#111111] dark:text-[#FDFDFD]">Ft. Social Crew</span>
+            </div>
+            <p>&copy; <span id="year"></span> Ft. Social Crew. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Set Current Year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // 1. Initialize Icons
+        lucide.createIcons();
+
+        // 2. Scramble Text Logic
+        const words = ['Algorithms', 'Attention', 'Engagement', 'Followers'];
+        const el = document.getElementById('scramble-text');
+        let currentIndex = 0;
+        let interval;
+        let timeout;
+
+        function scramble() {
+            const nextIndex = (currentIndex + 1) % words.length;
+            const newWord = words[nextIndex];
+            let iteration = 0;
+            clearInterval(interval);
+            
+            interval = setInterval(() => {
+                el.innerText = newWord.split("").map((letter, index) => {
+                    if (index < iteration) return newWord[index];
+                    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+                    return chars[Math.floor(Math.random() * chars.length)];
+                }).join("");
+
+                if (iteration >= newWord.length) {
+                    clearInterval(interval);
+                    currentIndex = nextIndex;
+                    timeout = setTimeout(scramble, 3000);
+                }
+                iteration += 1 / 3; 
+            }, 30);
+        }
+        timeout = setTimeout(scramble, 3000);
+
+        // 3. Navbar Scroll Effect
+        const nav = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if(window.scrollY > 50) {
+                nav.classList.add('bg-[#FFF8F4]/90', 'dark:bg-[#111111]/90', 'backdrop-blur-md', 'shadow-sm', 'border-gray-200/80', 'dark:border-white/10');
+                nav.classList.remove('bg-transparent', 'py-6', 'border-transparent');
+            } else {
+                nav.classList.remove('bg-[#FFF8F4]/90', 'dark:bg-[#111111]/90', 'backdrop-blur-md', 'shadow-sm', 'border-gray-200/80', 'dark:border-white/10');
+                nav.classList.add('bg-transparent', 'py-6', 'border-transparent');
+            }
+        });
+
+        // 4. Mobile Menu Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        let isMenuOpen = false;
+
+        function toggleMenu() {
+            isMenuOpen = !isMenuOpen;
+            if(isMenuOpen) {
+                mobileMenu.classList.add('max-h-96', 'shadow-lg');
+                mobileMenu.classList.remove('max-h-0');
+                menuBtn.innerHTML = '<i data-lucide="x" class="w-7 h-7"></i>';
+            } else {
+                mobileMenu.classList.remove('max-h-96', 'shadow-lg');
+                mobileMenu.classList.add('max-h-0');
+                menuBtn.innerHTML = '<i data-lucide="menu" class="w-7 h-7"></i>';
+            }
+            lucide.createIcons();
+        }
+        menuBtn.addEventListener('click', toggleMenu);
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                if(isMenuOpen) toggleMenu();
+            });
+        });
+
+        // 5. Light/Dark Theme Toggle
+        const htmlEl = document.documentElement;
+        const themeToggles = document.querySelectorAll('.theme-toggle');
+
+        // Check system preference
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            htmlEl.classList.add('dark');
+        }
+
+        themeToggles.forEach(btn => {
+            btn.addEventListener('click', () => {
+                htmlEl.classList.toggle('dark');
+            });
+        });
+
+        // 6. Generate FAQ Accordion
+        const faqs = [
+            { title: "Innovative Strategies", desc: "We blend creativity with modern trends to develop innovative strategies tailored to your unique brand voice." },
+            { title: "Expert Team", desc: "Our diverse expert team ensures every aspect of your social media presence is crafted to absolute perfection." },
+            { title: "Distinct Brand Identity", desc: "We create a distinct brand identity that sets you apart from the competition and resonates with your audience." },
+            { title: "Engaging Content", desc: "We excel in engaging content, from compelling copy to stunning visuals that stop the scroll." },
+            { title: "Viral Reels", desc: "We create viral reels designed to spark curiosity, entertain, and massively boost your brand visibility." },
+            { title: "Optimized Conversions", desc: "We use automation tools to optimize conversion paths, ensuring your engagement turns into tangible results." }
+        ];
+
+        const faqContainer = document.getElementById('faq-container');
+        
+        faqs.forEach((faq, index) => {
+            const item = document.createElement('div');
+            item.className = 'faq-item border border-gray-200/80 dark:border-white/10 bg-white dark:bg-[#1A1A1A] rounded-[1.5rem] overflow-hidden transition-colors duration-300';
+            
+            item.innerHTML = `
+                <button class="faq-btn w-full flex items-center justify-between p-6 md:p-8 text-left focus:outline-none">
+                    <span class="text-lg md:text-xl font-bold">${faq.title}</span>
+                    <div class="faq-icon-wrapper w-8 h-8 bg-[#111] dark:bg-white rounded-full flex items-center justify-center shrink-0 ml-4 transition-colors">
+                        <i data-lucide="plus" class="faq-icon w-4 h-4 text-white dark:text-[#111]"></i>
+                    </div>
+                </button>
+                <div class="faq-content px-6 md:px-8 overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0">
+                    <p class="text-gray-600 dark:text-gray-400 text-sm md:text-base leading-relaxed pb-8">${faq.desc}</p>
+                </div>
+            `;
+            faqContainer.appendChild(item);
+        });
+
+        // Re-init icons for the newly added FAQs
+        lucide.createIcons();
+
+        // FAQ Interaction Logic
+        let activeFaqIndex = 0; // First one open by default matching React state
+
+        function updateFaqs() {
+            const items = document.querySelectorAll('.faq-item');
+            items.forEach((item, index) => {
+                const btn = item.querySelector('.faq-btn');
+                const content = item.querySelector('.faq-content');
+                const iconWrapper = item.querySelector('.faq-icon-wrapper');
+                const isDark = htmlEl.classList.contains('dark');
+                
+                if (index === activeFaqIndex) {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                    content.style.opacity = '1';
+                    iconWrapper.innerHTML = `<i data-lucide="minus" class="faq-icon w-4 h-4 text-white dark:text-[#111]"></i>`;
+                    
+                    // Highlight backgrounds based on theme
+                    item.classList.add('bg-[#FFD1DF]/40', 'dark:bg-[#FF6699]/10');
+                    item.classList.remove('bg-white', 'dark:bg-[#1A1A1A]');
+                } else {
+                    content.style.maxHeight = '0px';
+                    content.style.opacity = '0';
+                    iconWrapper.innerHTML = `<i data-lucide="plus" class="faq-icon w-4 h-4 text-white dark:text-[#111]"></i>`;
+                    
+                    // Reset backgrounds based on theme
+                    item.classList.remove('bg-[#FFD1DF]/40', 'dark:bg-[#FF6699]/10');
+                    item.classList.add('bg-white', 'dark:bg-[#1A1A1A]');
+                }
+            });
+            lucide.createIcons();
+        }
+
+        document.querySelectorAll('.faq-btn').forEach((btn, index) => {
+            btn.addEventListener('click', () => {
+                activeFaqIndex = (activeFaqIndex === index) ? -1 : index;
+                updateFaqs();
+            });
+        });
+
+        // Initial FAQ setup
+        updateFaqs();
+
+        // Listen for dark mode toggles to update FAQ background colors properly if one is open
+        const observer = new MutationObserver(() => updateFaqs());
+        observer.observe(htmlEl, { attributes: true, attributeFilter: ['class'] });
+
+    </script>
+</body>
+</html>
