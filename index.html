@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ft. Social Crew</title>
     
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -13,7 +18,11 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: '#FF6699'
+                        primary: '#3b82f6'
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        cursive: ['Caveat', 'cursive'],
                     }
                 }
             }
@@ -24,11 +33,9 @@
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <style>
-        /* Base Transition for Theme Switching */
         body {
             transition: background-color 0.5s ease, color 0.5s ease;
         }
-        /* Custom scrollbar hiding for clean UI if needed */
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -42,33 +49,46 @@
         .dark ::-webkit-scrollbar-thumb {
             background: #334155;
         }
+        
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(5deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        .animate-float-delayed {
+            animation: float 5s ease-in-out infinite 1.5s;
+        }
+        .animate-float-fast {
+            animation: float 4s ease-in-out infinite 0.5s;
+        }
     </style>
 </head>
-<body class="min-h-screen bg-[#FFF8F4] dark:bg-[#111111] text-[#111111] dark:text-[#FDFDFD] font-sans selection:bg-[#FF6699] selection:text-white transition-colors duration-500">
+<body class="min-h-screen bg-[#FFF8F4] dark:bg-[#111111] text-[#111111] dark:text-[#FDFDFD] font-sans selection:bg-[#3b82f6] selection:text-white transition-colors duration-500">
 
     <!-- Navigation -->
     <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-transparent py-6 border-b border-transparent">
         <div class="max-w-[1200px] mx-auto px-6 md:px-12 flex justify-between items-center">
             <!-- Logo -->
-            <a href="#" class="flex items-center gap-2 cursor-pointer group text-[#111111] dark:text-[#FDFDFD]">
+            <a href="#" class="flex items-center gap-2 cursor-pointer group text-[#111111] dark:text-[#FDFDFD] z-20">
                 <span class="font-bold text-2xl tracking-tight">Ft. Social Crew</span>
             </a>
-            
-            <!-- Desktop Links -->
 
             <!-- Desktop Actions -->
-            <div class="hidden md:flex items-center gap-4">
+            <div class="hidden md:flex items-center gap-4 z-20">
                 <button class="theme-toggle p-2 rounded-full bg-white dark:bg-[#222] border border-gray-200 text-[#111] dark:border-white/10 dark:text-white transition-all duration-300 hover:scale-105" aria-label="Toggle Theme">
                     <i data-lucide="moon" class="w-[18px] h-[18px] text-gray-600 dark:hidden"></i>
                     <i data-lucide="sun" class="w-[18px] h-[18px] text-yellow-400 hidden dark:block"></i>
                 </button>
-                <a href="#contact" class="px-6 py-2.5 bg-[#111] dark:bg-white text-white dark:text-[#111] hover:bg-gray-800 dark:hover:bg-gray-200 text-sm font-semibold transition-colors rounded-full flex items-center gap-2">
+                <a href="https://forms.gle/your-google-form-link" target="_blank" class="px-6 py-2.5 bg-[#111] dark:bg-white text-white dark:text-[#111] hover:bg-gray-800 dark:hover:bg-gray-200 text-sm font-semibold transition-colors rounded-full flex items-center gap-2">
                     Talk to Us
                 </a>
             </div>
 
             <!-- Mobile Actions -->
-            <div class="flex md:hidden items-center gap-4">
+            <div class="flex md:hidden items-center gap-4 z-20">
                 <button class="theme-toggle p-2 rounded-full bg-white dark:bg-[#222] border border-gray-200 text-[#111] dark:border-white/10 dark:text-white transition-all duration-300 hover:scale-105">
                     <i data-lucide="moon" class="w-[18px] h-[18px] text-gray-600 dark:hidden"></i>
                     <i data-lucide="sun" class="w-[18px] h-[18px] text-yellow-400 hidden dark:block"></i>
@@ -82,12 +102,12 @@
         <!-- Mobile Menu Dropdown -->
         <div id="mobile-menu" class="md:hidden absolute top-full left-0 w-full bg-[#FFF8F4] dark:bg-[#111111] border-b border-gray-200/80 dark:border-white/10 transition-all duration-300 overflow-hidden max-h-0 py-0">
             <div class="flex flex-col space-y-4 px-6 text-center pb-6">
-                <a href="#contact" class="mobile-link font-bold text-xl text-[#FF6699] py-2 mt-4">Talk to Us</a>
+                <a href="https://forms.gle/your-google-form-link" target="_blank" class="mobile-link font-bold text-xl text-[#3b82f6] py-2 mt-4">Talk to Us</a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- HERO SECTION -->
     <section class="pt-32 pb-24 md:pt-40 md:pb-32 px-6 md:px-12 w-full mx-auto overflow-hidden relative min-h-screen flex items-center" id="about">
         <div class="max-w-[1300px] mx-auto flex flex-col lg:flex-row items-center justify-between gap-16 relative z-10 w-full">
             
@@ -97,59 +117,55 @@
                     HELLO WORLD, <span class="text-[#3b82f6]">WE ARE</span>
                 </h3>
                 
-                <!-- Main Headline with 3D Offset Shadow -->
                 <h1 class="text-[3.5rem] md:text-7xl lg:text-[5.5rem] font-black mb-1 leading-none text-[#dbeafe] dark:text-[#3b82f6] tracking-tight drop-shadow-[3px_3px_0_rgba(17,17,17,1)] dark:drop-shadow-[4px_4px_0_rgba(255,255,255,0.1)] uppercase" style="-webkit-text-stroke: 1px #111;">
                     SOCIAL CREW
                 </h1>
                 
-                <!-- Cursive Subheading -->
                 <div class="font-cursive text-3xl md:text-4xl mb-8 text-[#111111] dark:text-[#FDFDFD]">
                     A Content Marketing Agency
                 </div>
                 
-                <p class="text-gray-600 dark:text-gray-400 text-base md:text-lg mb-10 max-w-md leading-relaxed">
-                    We are a team of enthusiastic individuals who help brands grow by unleashing the potential of social media.
+                <p class="text-gray-600 dark:text-gray-400 text-base md:text-lg mb-10 max-w-md leading-relaxed text-left">
+                    We help brands transcend the noise by crafting data-backed social strategies and high-retention content that drives actual growth.
                 </p>
 
                 <!-- Social Icons -->
                 <div class="flex space-x-6 mb-12">
-                    <a href="#" class="w-10 h-10 rounded-full border border-gray-300 dark:border-gray-700 flex items-center justify-center text-[#111] dark:text-white hover:bg-[#3b82f6] hover:border-[#3b82f6] hover:text-white transition-all"><i data-lucide="instagram" class="w-5 h-5"></i></a>
-                    <a href="#" class="w-10 h-10 rounded-full border border-gray-300 dark:border-gray-700 flex items-center justify-center text-[#111] dark:text-white hover:bg-[#3b82f6] hover:border-[#3b82f6] hover:text-white transition-all"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
-                    <a href="#" class="w-10 h-10 rounded-full border border-gray-300 dark:border-gray-700 flex items-center justify-center text-[#111] dark:text-white hover:bg-[#3b82f6] hover:border-[#3b82f6] hover:text-white transition-all"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+                    <a href="https://instagram.com/ft.socialcrew" target="_blank" class="w-10 h-10 rounded-full border border-gray-300 dark:border-gray-700 flex items-center justify-center text-[#111] dark:text-white hover:bg-[#3b82f6] hover:border-[#3b82f6] hover:text-white transition-all"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                    <a href="https://linkedin.com/in/ft-social-crew" target="_blank" class="w-10 h-10 rounded-full border border-gray-300 dark:border-gray-700 flex items-center justify-center text-[#111] dark:text-white hover:bg-[#3b82f6] hover:border-[#3b82f6] hover:text-white transition-all"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                    <a href="https://twitter.com/ftsocialcrew" target="_blank" class="w-10 h-10 rounded-full border border-gray-300 dark:border-gray-700 flex items-center justify-center text-[#111] dark:text-white hover:bg-[#3b82f6] hover:border-[#3b82f6] hover:text-white transition-all"><i data-lucide="twitter" class="w-5 h-5"></i></a>
                 </div>
 
                 <!-- Action Buttons -->
                 <div class="flex flex-col sm:flex-row items-start sm:items-center gap-6 sm:gap-10">
-                    <a href="#contact" class="px-8 py-3 rounded-full border-2 border-[#111111] dark:border-gray-600 text-[#111111] dark:text-white font-bold text-xs tracking-widest hover:bg-[#111111] hover:text-white dark:hover:border-white transition-all">
+                    <a href="https://forms.gle/your-google-form-link" target="_blank" class="px-8 py-3 rounded-full border-2 border-[#111111] dark:border-gray-600 text-[#111111] dark:text-white font-bold text-xs tracking-widest hover:bg-[#111111] hover:text-white dark:hover:border-white transition-all uppercase">
                         CONTACT US
                     </a>
-                    <div class="flex items-center gap-4 cursor-pointer group">
+                    <a href="portfolio.pdf" download="Social-Crew-Portfolio" class="flex items-center gap-4 cursor-pointer group">
                         <div class="w-12 h-[2px] bg-[#111111] dark:bg-gray-600 group-hover:w-16 group-hover:bg-[#3b82f6] transition-all"></div>
-                        <span class="font-bold text-xs text-[#111111] dark:text-white uppercase tracking-widest group-hover:text-[#3b82f6] transition-colors">Download Brochure</span>
-                    </div>
+                        <span class="font-bold text-xs text-[#111111] dark:text-white uppercase tracking-widest group-hover:text-[#3b82f6] transition-colors">Download Portfolio</span>
+                    </a>
                 </div>
             </div>
 
             <!-- Right Graphic -->
             <div class="w-full lg:w-[50%] flex justify-center lg:justify-end relative mt-20 lg:mt-0">
-                <!-- Large Circular Background -->
                 <div class="relative w-[300px] h-[300px] md:w-[480px] md:h-[480px] rounded-full bg-[#3b82f6] flex items-center justify-center shadow-2xl">
-                    
-                    <!-- Rocket Emoji -->
-                    <div class="text-[140px] md:text-[220px] drop-shadow-[0_20px_20px_rgba(0,0,0,0.4)] z-10 transform -rotate-6 animate-float">
-                        🚀
-                    </div>
-                    
-                    <!-- Smoke base -->
+                    <div class="text-[140px] md:text-[220px] drop-shadow-[0_20px_20px_rgba(0,0,0,0.4)] z-10 transform -rotate-6 animate-float">🚀</div>
                     <div class="absolute bottom-4 md:bottom-8 w-[200px] md:w-[320px] h-[80px] md:h-[120px] bg-white rounded-full opacity-90 blur-xl z-0"></div>
 
-                    <!-- Floating 3D Elements -->
-                    <div class="absolute top-12 left-8 md:top-20 md:left-12 text-4xl md:text-5xl drop-shadow-lg animate-float-delayed">💬</div>
-                    <div class="absolute top-1/4 right-8 md:right-16 text-3xl md:text-5xl drop-shadow-lg animate-float-fast">😄</div>
-                    <div class="absolute bottom-32 left-0 md:left-4 text-4xl md:text-6xl drop-shadow-lg animate-float">▶️</div>
+                    <!-- Interactive Floating Elements -->
+                    <a href="https://instagram.com/ft.socialcrew" target="_blank" class="absolute top-12 left-8 md:top-20 md:left-12 w-12 h-12 md:w-16 md:h-16 bg-white dark:bg-gray-900 rounded-full shadow-lg flex items-center justify-center text-primary animate-float-delayed hover:scale-110 transition-transform z-20">
+                        <i data-lucide="instagram" class="w-6 h-6 md:w-8 md:h-8"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/ft-social-crew" target="_blank" class="absolute top-1/4 right-8 md:right-16 w-12 h-12 md:w-16 md:h-16 bg-white dark:bg-gray-900 rounded-full shadow-lg flex items-center justify-center text-primary animate-float-fast hover:scale-110 transition-transform z-20">
+                        <i data-lucide="linkedin" class="w-6 h-6 md:w-8 md:h-8"></i>
+                    </a>
+                    <a href="https://twitter.com/ftsocialcrew" target="_blank" class="absolute bottom-32 left-0 md:left-4 w-12 h-12 md:w-16 md:h-16 bg-white dark:bg-gray-900 rounded-full shadow-lg flex items-center justify-center text-primary animate-float hover:scale-110 transition-transform z-20">
+                        <i data-lucide="twitter" class="w-6 h-6 md:w-8 md:h-8"></i>
+                    </a>
                     <div class="absolute bottom-24 right-8 md:right-12 text-5xl md:text-6xl drop-shadow-lg animate-float-delayed">💖</div>
                     <div class="absolute top-8 right-1/3 text-3xl md:text-4xl drop-shadow-lg animate-float-fast">📍</div>
-                    <div class="absolute top-1/2 -left-4 md:-left-8 text-4xl md:text-5xl drop-shadow-lg animate-float">📊</div>
 
                     <!-- Stat Boxes -->
                     <div class="absolute -bottom-6 md:bottom-12 -left-4 md:-left-12 bg-[#1A1A1A] border border-gray-700 rounded-full px-6 py-3 flex items-center gap-4 shadow-xl z-20 hover:scale-105 transition-transform duration-300">
@@ -169,51 +185,47 @@
     <!-- Expertise Section -->
     <section id="expertise" class="py-24 px-6 md:px-12 w-full bg-white dark:bg-[#1A1A1A] rounded-t-[3rem] border-t border-gray-200/80 dark:border-white/10 transition-colors duration-500">
         <div class="max-w-[1200px] mx-auto flex flex-col lg:flex-row items-start justify-between gap-16 lg:gap-12">
-            
-            <div class="w-full lg:w-1/3 flex flex-col items-start lg:sticky lg:top-32">
-                <h2 class="text-5xl md:text-6xl font-bold mb-6 leading-[1.1] tracking-tight">
-                    Our<br/>expertise
-                </h2>
-                <p class="text-gray-600 dark:text-gray-400 mb-8 leading-relaxed text-base md:text-lg pr-4 font-medium">
-                    We specialize in crafting tailored strategies that resonate with your audience across all major social platforms.
-                </p>
+            <div class="w-full lg:w-1/3 flex flex-col items-start lg:sticky lg:top-32 text-left">
+                <h2 class="text-5xl md:text-6xl font-bold mb-6 leading-[1.1] tracking-tight">Our<br/>expertise</h2>
+                <p class="text-gray-600 dark:text-gray-400 mb-8 leading-relaxed text-base md:text-lg pr-4 font-medium">We specialize in crafting tailored strategies that resonate with your audience across all major social platforms.</p>
+                <a href="https://forms.gle/your-google-form-link" target="_blank" class="px-8 py-3.5 rounded-full text-sm font-semibold transition-colors bg-[#111] dark:bg-white text-white dark:text-[#111] hover:bg-gray-800 dark:hover:bg-gray-200">Contact Us</a>
             </div>
 
-            <div class="w-full lg:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
-                <!-- Card 1 -->
+            <div class="w-full lg:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 text-left">
                 <div class="bg-[#FFF8F4] dark:bg-[#222222] rounded-[2rem] p-8 md:p-10 border border-gray-200/80 dark:border-white/10 shadow-sm flex flex-col justify-center min-h-[280px] hover:shadow-md transition-all">
                     <i data-lucide="message-square" class="w-8 h-8 mb-6 text-[#111111] dark:text-[#FDFDFD]"></i>
                     <h3 class="text-2xl md:text-3xl font-bold mb-4 tracking-tight">Content Creation</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed font-medium">
-                        High-impact visuals and copy crafted tailored to resonate with your audience.
-                    </p>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed font-medium">High-impact visuals and copy crafted tailored to resonate with your audience.</p>
                 </div>
 
-                <!-- Card 2 -->
                 <div class="bg-[#FFF8F4] dark:bg-[#222222] rounded-[2rem] p-8 md:p-10 border border-gray-200/80 dark:border-white/10 shadow-sm flex flex-col justify-center min-h-[280px] hover:shadow-md transition-all">
                     <i data-lucide="target" class="w-8 h-8 mb-6 text-[#111111] dark:text-[#FDFDFD]"></i>
                     <h3 class="text-2xl md:text-3xl font-bold mb-4 tracking-tight">Social Strategy</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed font-medium">
-                        Strategy is our compass. We map out a clear path leveraging data insights.
-                    </p>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed font-medium">Strategy is our compass. We map out a clear path leveraging data insights.</p>
                 </div>
 
-                <!-- Inverted Accent Card -->
-                <div class="bg-[#FFF8F4] dark:bg-[#222222] rounded-[2rem] p-8 md:p-10 border border-gray-200/80 dark:border-white/10 shadow-sm flex flex-col justify-center min-h-[280px] hover:shadow-md transition-all">
-                    <i data-lucide="message-square" class="w-8 h-8 mb-6 text-[#111111] dark:text-[#FDFDFD]"></i>
-                    <h3 class="text-2xl md:text-3xl font-bold mb-4 tracking-tight">Webiste <br> Development</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed font-medium">
-                        We build clean, responsive, and conversion-focused websites.
-                    </p>
+                <div class="bg-[#1a1a1a] text-white dark:bg-white dark:text-[#111] rounded-[2rem] p-8 md:p-10 shadow-md flex flex-col justify-between min-h-[300px] relative overflow-hidden group transition-colors duration-500">
+                    <div class="relative w-full h-16 mb-6 flex items-center justify-between">
+                        <i data-lucide="globe" class="w-10 h-10 transform -rotate-12 group-hover:rotate-0 transition-transform duration-500"></i>
+                        <div class="flex flex-col gap-2.5 mr-2 opacity-90">
+                            <div class="w-12 h-[3px] rounded-full bg-[#3b82f6] self-end transform translate-x-2"></div>
+                            <div class="w-16 h-[3px] rounded-full bg-[#3b82f6] self-end"></div>
+                            <div class="w-10 h-[3px] rounded-full bg-[#3b82f6] self-end transform -translate-x-4"></div>
+                        </div>
+                    </div>
+                    <div class="mt-auto relative z-10 pr-4">
+                        <h3 class="text-2xl md:text-3xl font-bold mb-3 tracking-tight">Website<br/>Development</h3>
+                        <p class="text-sm leading-relaxed text-gray-400 dark:text-gray-600">We build clean, responsive, and conversion-focused websites.</p>
+                    </div>
+                    <div class="absolute bottom-8 right-8">
+                        <i data-lucide="arrow-up-right" class="w-6 h-6 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
+                    </div>
                 </div>
 
-                <!-- Card 4 -->
                 <div class="bg-[#FFF8F4] dark:bg-[#222222] rounded-[2rem] p-8 md:p-10 border border-gray-200/80 dark:border-white/10 shadow-sm flex flex-col justify-center min-h-[280px] hover:shadow-md transition-all">
                     <i data-lucide="camera" class="w-8 h-8 mb-6 text-[#111111] dark:text-[#FDFDFD]"></i>
                     <h3 class="text-2xl md:text-3xl font-bold mb-4 tracking-tight">Video & Photos</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed font-medium">
-                        Dive into storytelling. We wield visuals to create immersive experiences.
-                    </p>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed font-medium">Dive into storytelling. We wield visuals to create immersive experiences.</p>
                 </div>
             </div>
         </div>
@@ -221,12 +233,10 @@
 
     <!-- Impact Section -->
     <section id="impact" class="py-24 px-6 md:px-12 w-full bg-[#FFF8F4] dark:bg-[#111111] transition-colors duration-500">
-        <div class="max-w-[1200px] mx-auto">
+        <div class="max-w-[1200px] mx-auto text-left">
             <div class="flex flex-col md:flex-row items-end justify-between mb-16">
                 <h2 class="text-5xl md:text-6xl font-bold tracking-tight">Impact<br/>metrics</h2>
-                <p class="text-gray-600 dark:text-gray-400 font-medium max-w-sm md:text-right mt-6 md:mt-0 leading-relaxed">
-                    Real growth achieved through strategic planning, viral formats, and relentless optimization.
-                </p>
+                <p class="text-gray-600 dark:text-gray-400 font-medium max-w-sm md:text-right mt-6 md:mt-0 leading-relaxed">Real growth achieved through strategic planning, viral formats, and relentless optimization.</p>
             </div>
 
             <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-10">
@@ -247,7 +257,7 @@
                         <img src="Screenshot 2026-04-09 160342.png" alt="3.3M Reached" class="w-full h-full object-contain rounded-2xl bg-[#f8f8f8] dark:bg-[#0f0f0f]" />
                     </div>
                     <div class="text-center px-2">
-                        <h3 class="text-2xl md:text-3xl font-black mb-1 tracking-tighter">3.3M Reached</h3>
+                        <h3 class="text-2xl md:text-3xl font-black mb-1 tracking-tighter">3.3M Reach</h3>
                         <p class="text-gray-500 dark:text-gray-400 text-xs font-bold uppercase tracking-widest">+173% Followers</p>
                     </div>
                 </div>
@@ -258,7 +268,7 @@
                         <img src="Screenshot 2026-04-09 160424.png" alt="99K Reached" class="w-full h-full object-contain rounded-2xl bg-[#f8f8f8] dark:bg-[#0f0f0f]" />
                     </div>
                     <div class="text-center px-2">
-                        <h3 class="text-2xl md:text-3xl font-black mb-1 tracking-tighter">99K+ Reached</h3>
+                        <h3 class="text-2xl md:text-3xl font-black mb-1 tracking-tighter">99K+ Reach</h3>
                         <p class="text-gray-500 dark:text-gray-400 text-xs font-bold uppercase tracking-widest">96% Non-Followers</p>
                     </div>
                 </div>
@@ -276,219 +286,142 @@
             </div>
         </div>
     </section>
-    
-                       
 
-
-    <!-- Why Us / FAQ Section -->
-    <section class="py-24 px-6 md:px-12 w-full bg-white dark:bg-[#1A1A1A] rounded-t-[3rem] transition-colors duration-500">
-        <div class="max-w-[800px] mx-auto">
-            <h2 class="text-5xl font-bold mb-4 tracking-tight text-center">Why choose us?</h2>
-            <p class="text-gray-600 dark:text-gray-400 text-center mb-16 font-medium">
-                Discover how our methodology delivers unfair advantages.
-            </p>
-
-            <div class="space-y-4" id="faq-container">
-                <!-- FAQs will be injected via JS to keep HTML clean -->
+    <!-- Glimpses of Creation (Full Portfolio Image List) -->
+    <section id="work" class="py-24 bg-white dark:bg-[#1A1A1A] rounded-[3rem] transition-colors duration-500 mx-auto max-w-[1400px]">
+        <div class="px-6 lg:px-12">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold tracking-tight">Glimpses of Creation</h2>
+                <p class="text-gray-500 dark:text-gray-400 mt-4 max-w-xl mx-auto font-medium">A visual archive of our work, case studies, and design explorations.</p>
+            </div>
+            
+            <div class="columns-1 md:columns-2 lg:columns-3 xl:columns-4 gap-6 space-y-6">
+                <div class="break-inside-avoid">
+                    <img src="Screenshot 2026-04-10 125456.png" alt="Work Archive" class="w-full rounded-[2rem] shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-200 dark:border-white/10 hover:-translate-y-1" />
+                </div>
+                <div class="break-inside-avoid">
+                    <img src="Screenshot 2026-04-10 125506.png" alt="Work Archive" class="w-full rounded-[2rem] shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-200 dark:border-white/10 hover:-translate-y-1" />
+                </div>
+                <div class="break-inside-avoid">
+                    <img src="Screenshot 2026-04-10 125519.png" alt="Work Archive" class="w-full rounded-[2rem] shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-200 dark:border-white/10 hover:-translate-y-1" />
+                </div>
+                <div class="break-inside-avoid">
+                    <img src="Screenshot 2026-04-10 125551.png" alt="Work Archive" class="w-full rounded-[2rem] shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-200 dark:border-white/10 hover:-translate-y-1" />
+                </div>
+                <div class="break-inside-avoid">
+                    <img src="Screenshot 2026-04-10 125558.png" alt="Work Archive" class="w-full rounded-[2rem] shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-200 dark:border-white/10 hover:-translate-y-1" />
+                </div>
+                <div class="break-inside-avoid">
+                    <img src="Screenshot 2026-04-10 130333.png" alt="Work Archive" class="w-full rounded-[2rem] shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-200 dark:border-white/10 hover:-translate-y-1" />
+                </div>
+                <div class="break-inside-avoid">
+                    <img src="Screenshot 2026-04-10 130347.png" alt="Work Archive" class="w-full rounded-[2rem] shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-200 dark:border-white/10 hover:-translate-y-1" />
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Portfolio Grid -->
-    <section id="work" class="py-24 bg-[#FFF8F4] dark:bg-[#111111] transition-colors duration-500">
-        <div class="max-w-[1400px] mx-auto px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-5xl font-bold tracking-tight">Glimpses of Creation</h2>
-            </div>
-            <div class="columns-1 md:columns-2 lg:columns-4 gap-6 space-y-6">
-                <img src="Screenshot 2026-04-10 125456.png" alt="Work 1" class="w-full rounded-[2rem] shadow-sm hover:shadow-xl transition-shadow duration-500 border border-gray-200/80 dark:border-white/10" />
-                <img src="Screenshot 2026-04-10 125506.png" alt="Work 2" class="w-full rounded-[2rem] shadow-sm hover:shadow-xl transition-shadow duration-500 border border-gray-200/80 dark:border-white/10" />
-                <img src="Screenshot 2026-04-10 125519.png" alt="Work 3" class="w-full rounded-[2rem] shadow-sm hover:shadow-xl transition-shadow duration-500 border border-gray-200/80 dark:border-white/10" />
-                <img src="Screenshot 2026-04-10 125551.png" alt="Work 4" class="w-full rounded-[2rem] shadow-sm hover:shadow-xl transition-shadow duration-500 border border-gray-200/80 dark:border-white/10" />
-                <img src="Screenshot 2026-04-10 125558.png" alt="Work 1" class="w-full rounded-[2rem] shadow-sm hover:shadow-xl transition-shadow duration-500 border border-gray-200/80 dark:border-white/10" />
-                <img src="Screenshot 2026-04-10 130333.png" alt="Work 2" class="w-full rounded-[2rem] shadow-sm hover:shadow-xl transition-shadow duration-500 border border-gray-200/80 dark:border-white/10" />
-                <img src="Screenshot 2026-04-10 130347.png" alt="Work 3" class="w-full rounded-[2rem] shadow-sm hover:shadow-xl transition-shadow duration-500 border border-gray-200/80 dark:border-white/10" />
-                <img src="Screenshot 2026-04-10 130356.png" alt="Work 4" class="w-full rounded-[2rem] shadow-sm hover:shadow-xl transition-shadow duration-500 border border-gray-200/80 dark:border-white/10" />
-                <img src="Screenshot 2026-04-10 130405.png" alt="Work 1" class="w-full rounded-[2rem] shadow-sm hover:shadow-xl transition-shadow duration-500 border border-gray-200/80 dark:border-white/10" />
-                <img src="Screenshot 2026-04-10 130417.png" alt="Work 2" class="w-full rounded-[2rem] shadow-sm hover:shadow-xl transition-shadow duration-500 border border-gray-200/80 dark:border-white/10" />
-                <img src="Screenshot 2026-04-10 130424.png" alt="Work 3" class="w-full rounded-[2rem] shadow-sm hover:shadow-xl transition-shadow duration-500 border border-gray-200/80 dark:border-white/10" />
-                <img src="Screenshot 2026-04-10 130435.png" alt="Work 4" class="w-full rounded-[2rem] shadow-sm hover:shadow-xl transition-shadow duration-500 border border-gray-200/80 dark:border-white/10" />
-                <img src="Screenshot 2026-04-10 130450.png" alt="Work 1" class="w-full rounded-[2rem] shadow-sm hover:shadow-xl transition-shadow duration-500 border border-gray-200/80 dark:border-white/10" />
-                <img src="Screenshot 2026-04-10 130500.png" alt="Work 1" class="w-full rounded-[2rem] shadow-sm hover:shadow-xl transition-shadow duration-500 border border-gray-200/80 dark:border-white/10" />
+    <!-- Why Us / FAQ Section -->
+    <section class="py-24 px-6 md:px-12 w-full bg-white dark:bg-[#1A1A1A] transition-colors duration-500 mt-24 border-t border-gray-100 dark:border-white/5">
+        <div class="max-w-[800px] mx-auto">
+            <h2 class="text-5xl font-bold mb-4 tracking-tight text-center">Why choose us?</h2>
+            <p class="text-gray-600 dark:text-gray-400 text-center mb-16 font-medium">Discover how our methodology delivers unfair advantages.</p>
+            <div class="space-y-4 text-left" id="faq-container"></div>
         </div>
     </section>
 
     <!-- Testimonials -->
-    <section class="py-24 px-6 md:px-12 w-full bg-white dark:bg-[#1A1A1A] rounded-[3rem] mx-auto max-w-[1300px] my-12 border border-gray-200/80 dark:border-white/10 shadow-sm transition-colors duration-500">
-        <h2 class="text-4xl md:text-5xl font-bold mb-16 text-center tracking-tight">Cackles of Approval</h2>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-[1000px] mx-auto">
-            <div class="bg-[#FFF8F4] dark:bg-[#222222] rounded-[2rem] p-8 md:p-10 border border-gray-200/80 dark:border-white/10">
-                <div class="flex gap-1 text-[#FF6699] mb-6">
-                    <i data-lucide="star" class="w-5 h-5 fill-current border-0" stroke-width="0"></i>
-                    <i data-lucide="star" class="w-5 h-5 fill-current border-0" stroke-width="0"></i>
-                    <i data-lucide="star" class="w-5 h-5 fill-current border-0" stroke-width="0"></i>
-                    <i data-lucide="star" class="w-5 h-5 fill-current border-0" stroke-width="0"></i>
-                    <i data-lucide="star" class="w-5 h-5 fill-current border-0" stroke-width="0"></i>
-                </div>
-                <p class="text-gray-600 dark:text-gray-400 text-base md:text-lg mb-8 leading-relaxed font-medium">"Working with this team completely changed how my brand shows up online. From content planning to reels and overall page management, everything finally felt structured and intentional."</p>
-                <div class="flex items-center gap-4">
-                    <div class="w-12 h-12 rounded-full bg-gray-200 dark:bg-[#333]"></div>
-                    <div>
-                        <p class="font-bold text-sm text-[#111111] dark:text-[#FDFDFD]">Vivek</p>
-                        <p class="text-gray-500 text-xs">Client</p>
+    <section class="py-24 px-6 md:px-12 w-full bg-[#FFF8F4] dark:bg-[#111111] transition-colors duration-500">
+        <div class="max-w-[1200px] mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold mb-16 text-center tracking-tight uppercase">Cackles of Approval</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+                <div class="bg-white dark:bg-[#1A1A1A] rounded-[2rem] p-8 md:p-10 border border-gray-200/80 dark:border-white/10 shadow-sm transition-all hover:shadow-md">
+                    <div class="flex gap-1 text-[#3b82f6] mb-6">
+                        <i data-lucide="star" class="w-5 h-5 fill-current"></i><i data-lucide="star" class="w-5 h-5 fill-current"></i><i data-lucide="star" class="w-5 h-5 fill-current"></i><i data-lucide="star" class="w-5 h-5 fill-current"></i><i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 text-base md:text-lg mb-8 leading-relaxed font-medium">"Our organic reach exploded by 400% within the first month. The content strategy isn't just about looks—it's about results. They finally gave our brand a voice that people actually want to listen to."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center font-bold text-blue-600 dark:text-blue-300 uppercase">V</div>
+                        <div><p class="font-bold text-sm text-[#111111] dark:text-[#FDFDFD]">Vivek</p><p class="text-gray-500 text-xs">Founder, D2C Brand</p></div>
                     </div>
                 </div>
-            </div>
 
-            <div class="bg-[#FFF8F4] dark:bg-[#222222] rounded-[2rem] p-8 md:p-10 border border-gray-200/80 dark:border-white/10">
-                <div class="flex gap-1 text-[#FF6699] mb-6">
-                    <i data-lucide="star" class="w-5 h-5 fill-current border-0" stroke-width="0"></i>
-                    <i data-lucide="star" class="w-5 h-5 fill-current border-0" stroke-width="0"></i>
-                    <i data-lucide="star" class="w-5 h-5 fill-current border-0" stroke-width="0"></i>
-                    <i data-lucide="star" class="w-5 h-5 fill-current border-0" stroke-width="0"></i>
-                    <i data-lucide="star" class="w-5 h-5 fill-current border-0" stroke-width="0"></i>
-                </div>
-                <p class="text-gray-600 dark:text-gray-400 text-base md:text-lg mb-8 leading-relaxed font-medium">"The content quality, aesthetics, and strategy were on another level. Reels started getting more saves and shares, and our page finally looked professional."</p>
-                <div class="flex items-center gap-4">
-                    <div class="w-12 h-12 rounded-full bg-gray-200 dark:bg-[#333]"></div>
-                    <div>
-                        <p class="font-bold text-sm text-[#111111] dark:text-[#FDFDFD]">Yash</p>
-                        <p class="text-gray-500 text-xs">Client</p>
+                <div class="bg-white dark:bg-[#1A1A1A] rounded-[2rem] p-8 md:p-10 border border-gray-200/80 dark:border-white/10 shadow-sm transition-all hover:shadow-md">
+                    <div class="flex gap-1 text-[#3b82f6] mb-6">
+                        <i data-lucide="star" class="w-5 h-5 fill-current"></i><i data-lucide="star" class="w-5 h-5 fill-current"></i><i data-lucide="star" class="w-5 h-5 fill-current"></i><i data-lucide="star" class="w-5 h-5 fill-current"></i><i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 text-base md:text-lg mb-8 leading-relaxed font-medium">"The viral reel hooks they developed were a game changer. We reached over 2 million non-followers without spending a single rupee on ads. Best investment we've made this year."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center font-bold text-blue-600 dark:text-blue-300 uppercase">Y</div>
+                        <div><p class="font-bold text-sm text-[#111111] dark:text-[#FDFDFD]">Yash</p><p class="text-gray-500 text-xs">E-commerce Entrepreneur</p></div>
                     </div>
                 </div>
-            </div>
-            <div class="bg-[#FFF8F4] dark:bg-[#222222] rounded-[2rem] p-8 md:p-10 border border-gray-200/80 dark:border-white/10">
-                <div class="flex gap-1 text-[#FF6699] mb-6">
-                    <i data-lucide="star" class="w-5 h-5 fill-current border-0" stroke-width="0"></i>
-                    <i data-lucide="star" class="w-5 h-5 fill-current border-0" stroke-width="0"></i>
-                    <i data-lucide="star" class="w-5 h-5 fill-current border-0" stroke-width="0"></i>
-                    <i data-lucide="star" class="w-5 h-5 fill-current border-0" stroke-width="0"></i>
-                    <i data-lucide="star" class="w-5 h-5 fill-current border-0" stroke-width="0"></i>
-                </div>
-                <p class="text-gray-600 dark:text-gray-400 text-base md:text-lg mb-8 leading-relaxed font-medium">"Posting timings, content direction, captions, and
-overall positioning were fixed properly.
-The insights started improving consistently, and
-we finally understood what was working and why."</p>
-                <div class="flex items-center gap-4">
-                    <div class="w-12 h-12 rounded-full bg-gray-200 dark:bg-[#333]"></div>
-                    <div>
-                        <p class="font-bold text-sm text-[#111111] dark:text-[#FDFDFD]">Aman</p>
-                        <p class="text-gray-500 text-xs">Client</p>
+
+                <div class="bg-white dark:bg-[#1A1A1A] rounded-[2rem] p-8 md:p-10 border border-gray-200/80 dark:border-white/10 shadow-sm transition-all hover:shadow-md">
+                    <div class="flex gap-1 text-[#3b82f6] mb-6">
+                        <i data-lucide="star" class="w-5 h-5 fill-current"></i><i data-lucide="star" class="w-5 h-5 fill-current"></i><i data-lucide="star" class="w-5 h-5 fill-current"></i><i data-lucide="star" class="w-5 h-5 fill-current"></i><i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 text-base md:text-lg mb-8 leading-relaxed font-medium">"Professional, aesthetic, and strategic. Our Instagram page finally looks like a premium brand. The transition from random posts to intentional storytelling was seamless thanks to Social Crew."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center font-bold text-blue-600 dark:text-blue-300 uppercase">A</div>
+                        <div><p class="font-bold text-sm text-[#111111] dark:text-[#FDFDFD]">Aman</p><p class="text-gray-500 text-xs">Business Owner</p></div>
                     </div>
                 </div>
-            </div>
-            <div class="bg-[#FFF8F4] dark:bg-[#222222] rounded-[2rem] p-8 md:p-10 border border-gray-200/80 dark:border-white/10">
-                <div class="flex gap-1 text-[#FF6699] mb-6">
-                    <i data-lucide="star" class="w-5 h-5 fill-current border-0" stroke-width="0"></i>
-                    <i data-lucide="star" class="w-5 h-5 fill-current border-0" stroke-width="0"></i>
-                    <i data-lucide="star" class="w-5 h-5 fill-current border-0" stroke-width="0"></i>
-                    <i data-lucide="star" class="w-5 h-5 fill-current border-0" stroke-width="0"></i>
-                    <i data-lucide="star" class="w-5 h-5 fill-current border-0" stroke-width="0"></i>
-                </div>
-                <p class="text-gray-600 dark:text-gray-400 text-base md:text-lg mb-8 leading-relaxed font-medium">"Honestly, I was overwhelmed before starting.
-Posting felt random and nothing was really working.
-After this, the content finally had direction.
-The page looks clean, the reels are performing better, and
-I don't have to overthink Instagram anymore."</p>
-                <div class="flex items-center gap-4">
-                    <div class="w-12 h-12 rounded-full bg-gray-200 dark:bg-[#333]"></div>
-                    <div>
-                        <p class="font-bold text-sm text-[#111111] dark:text-[#FDFDFD]">Mohit</p>
-                        <p class="text-gray-500 text-xs">Client</p>
+
+                <div class="bg-white dark:bg-[#1A1A1A] rounded-[2rem] p-8 md:p-10 border border-gray-200/80 dark:border-white/10 shadow-sm transition-all hover:shadow-md">
+                    <div class="flex gap-1 text-[#3b82f6] mb-6">
+                        <i data-lucide="star" class="w-5 h-5 fill-current"></i><i data-lucide="star" class="w-5 h-5 fill-current"></i><i data-lucide="star" class="w-5 h-5 fill-current"></i><i data-lucide="star" class="w-5 h-5 fill-current"></i><i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 text-base md:text-lg mb-8 leading-relaxed font-medium">"I used to overthink every post. Now, I just let Social Crew handle the heavy lifting. The engagement metrics speak for themselves—more saves, more shares, and way more inbound leads."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center font-bold text-blue-600 dark:text-blue-300 uppercase">M</div>
+                        <div><p class="font-bold text-sm text-[#111111] dark:text-[#FDFDFD]">Mohit</p><p class="text-gray-500 text-xs">Marketing Lead</p></div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer / Contact -->
+    <!-- Footer -->
     <footer id="contact" class="pt-24 pb-12 px-6 md:px-12 bg-[#FFF8F4] dark:bg-[#111111] text-sm border-t border-gray-200/80 dark:border-white/10 transition-colors duration-500">
-        <div class="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
+        <div class="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 mb-16 text-left">
             <div class="md:col-span-5">
                 <h2 class="text-4xl md:text-5xl font-black mb-6 tracking-tight text-[#111111] dark:text-[#FDFDFD]">Ready to Scale?</h2>
-                <p class="text-gray-600 dark:text-gray-400 mb-8 font-medium text-lg max-w-sm">
-                    Stop blending in. Let's build a social presence that dominates your niche.
-                </p>
+                <p class="text-gray-600 dark:text-gray-400 mb-8 font-medium text-lg max-w-sm">Stop blending in. Let's build a social presence that dominates your niche.</p>
                 <div class="flex space-x-4">
-                    <a href="https://instagram.com/ft.socialcrew" class="w-12 h-12 rounded-full bg-white dark:bg-[#222] border border-gray-200 dark:border-white/10 text-[#111] dark:text-white flex items-center justify-center hover:bg-[#FF6699] hover:text-white dark:hover:text-white hover:border-[#FF6699] dark:hover:border-[#FF6699] transition-colors">
-                        <i data-lucide="instagram" class="w-5 h-5"></i>
-                    </a>
-                    <a href="mailto:ftsocialcrew@gmail.com" class="w-12 h-12 rounded-full bg-white dark:bg-[#222] border border-gray-200 dark:border-white/10 text-[#111] dark:text-white flex items-center justify-center hover:bg-[#FF6699] hover:text-white dark:hover:text-white hover:border-[#FF6699] dark:hover:border-[#FF6699] transition-colors">
-                        <i data-lucide="mail" class="w-5 h-5"></i>
-                    </a>
-                    <a href="tel:+918851939418" class="w-12 h-12 rounded-full bg-white dark:bg-[#222] border border-gray-200 dark:border-white/10 text-[#111] dark:text-white flex items-center justify-center hover:bg-[#FF6699] hover:text-white dark:hover:text-white hover:border-[#FF6699] dark:hover:border-[#FF6699] transition-colors">
-                        <i data-lucide="phone" class="w-5 h-5"></i>
-                    </a>
+                    <a href="https://instagram.com/ft.socialcrew" target="_blank" class="w-12 h-12 rounded-full bg-white dark:bg-[#222] border border-gray-200 dark:border-white/10 text-[#111] dark:text-white flex items-center justify-center hover:bg-[#3b82f6] hover:text-white transition-colors"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                    <a href="https://linkedin.com/in/ft-social-crew" target="_blank" class="w-12 h-12 rounded-full bg-white dark:bg-[#222] border border-gray-200 dark:border-white/10 text-[#111] dark:text-white flex items-center justify-center hover:bg-[#3b82f6] hover:text-white transition-colors"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                    <a href="https://twitter.com/ftsocialcrew" target="_blank" class="w-12 h-12 rounded-full bg-white dark:bg-[#222] border border-gray-200 dark:border-white/10 text-[#111] dark:text-white flex items-center justify-center hover:bg-[#3b82f6] hover:text-white transition-colors"><i data-lucide="twitter" class="w-5 h-5"></i></a>
                 </div>
             </div>
-            
             <div class="md:col-span-2 md:col-start-8">
                 <h4 class="font-bold mb-6 text-base text-[#111111] dark:text-[#FDFDFD]">Solutions</h4>
                 <ul class="text-gray-600 dark:text-gray-400 space-y-4 font-medium">
-                    <li><a href="#expertise" class="hover:text-[#111111] dark:hover:text-[#FDFDFD]">Social Ads</a></li>
-                    <li><a href="#expertise" class="hover:text-[#111111] dark:hover:text-[#FDFDFD]">Content Creation</a></li>
-                    <li><a href="#expertise" class="hover:text-[#111111] dark:hover:text-[#FDFDFD]">Strategy</a></li>
-                    <li><a href="#expertise" class="hover:text-[#111111] dark:hover:text-[#FDFDFD]">Web Dev</a></li>
+                    <li><a href="#expertise" class="hover:text-[#3b82f6]">Social Ads</a></li>
+                    <li><a href="#expertise" class="hover:text-[#3b82f6]">Content Creation</a></li>
+                    <li><a href="#expertise" class="hover:text-[#3b82f6]">Strategy</a></li>
+                    <li><a href="#expertise" class="hover:text-[#3b82f6]">Web Dev</a></li>
                 </ul>
             </div>
-
             <div class="md:col-span-2">
                 <h4 class="font-bold mb-6 text-base text-[#111111] dark:text-[#FDFDFD]">Company</h4>
                 <ul class="text-gray-600 dark:text-gray-400 space-y-4 font-medium">
-                    <li><a href="#about" class="hover:text-[#111111] dark:hover:text-[#FDFDFD]">About</a></li>
-                    <li><a href="#impact" class="hover:text-[#111111] dark:hover:text-[#FDFDFD]">Case Studies</a></li>
-                    <li><a href="#work" class="hover:text-[#111111] dark:hover:text-[#FDFDFD]">Portfolio</a></li>
+                    <li><a href="#about" class="hover:text-[#3b82f6]">About</a></li>
+                    <li><a href="#impact" class="hover:text-[#3b82f6]">Case Studies</a></li>
+                    <li><a href="#work" class="hover:text-[#3b82f6]">Portfolio</a></li>
                 </ul>
             </div>
         </div>
-        
         <div class="max-w-[1200px] mx-auto pt-8 border-t border-gray-200/80 dark:border-white/10 flex flex-col md:flex-row justify-between items-center text-gray-500 font-medium text-xs">
-            <div class="flex items-center gap-2 mb-4 md:mb-0">
-                <span class="font-bold text-sm tracking-tight text-[#111111] dark:text-[#FDFDFD]">Ft. Social Crew</span>
-            </div>
+            <div class="flex items-center gap-2 mb-4 md:mb-0"><span class="font-bold text-sm tracking-tight text-[#111111] dark:text-[#FDFDFD]">Ft. Social Crew</span></div>
             <p>&copy; <span id="year"></span> Ft. Social Crew. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
-        // Set Current Year
         document.getElementById('year').textContent = new Date().getFullYear();
-
-        // 1. Initialize Icons
         lucide.createIcons();
 
-        // 2. Scramble Text Logic
-        const words = ['Algorithms', 'Attention', 'Engagement', 'Followers'];
-        const el = document.getElementById('scramble-text');
-        let currentIndex = 0;
-        let interval;
-        let timeout;
-
-        function scramble() {
-            const nextIndex = (currentIndex + 1) % words.length;
-            const newWord = words[nextIndex];
-            let iteration = 0;
-            clearInterval(interval);
-            
-            interval = setInterval(() => {
-                el.innerText = newWord.split("").map((letter, index) => {
-                    if (index < iteration) return newWord[index];
-                    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-                    return chars[Math.floor(Math.random() * chars.length)];
-                }).join("");
-
-                if (iteration >= newWord.length) {
-                    clearInterval(interval);
-                    currentIndex = nextIndex;
-                    timeout = setTimeout(scramble, 3000);
-                }
-                iteration += 1 / 3; 
-            }, 30);
-        }
-        timeout = setTimeout(scramble, 3000);
-
-        // 3. Navbar Scroll Effect
         const nav = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
             if(window.scrollY > 50) {
@@ -500,7 +433,6 @@ I don't have to overthink Instagram anymore."</p>
             }
         });
 
-        // 4. Mobile Menu Toggle
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         let isMenuOpen = false;
@@ -519,43 +451,43 @@ I don't have to overthink Instagram anymore."</p>
             lucide.createIcons();
         }
         menuBtn.addEventListener('click', toggleMenu);
-        document.querySelectorAll('.mobile-link').forEach(link => {
-            link.addEventListener('click', () => {
-                if(isMenuOpen) toggleMenu();
-            });
-        });
 
-        // 5. Light/Dark Theme Toggle
         const htmlEl = document.documentElement;
-        const themeToggles = document.querySelectorAll('.theme-toggle');
-
-        // Check system preference
-        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            htmlEl.classList.add('dark');
-        }
-
-        themeToggles.forEach(btn => {
-            btn.addEventListener('click', () => {
-                htmlEl.classList.toggle('dark');
-            });
+        document.querySelectorAll('.theme-toggle').forEach(btn => {
+            btn.addEventListener('click', () => htmlEl.classList.toggle('dark'));
         });
 
-        // 6. Generate FAQ Accordion
         const faqs = [
-            { title: "Innovative Strategies", desc: "We blend creativity with modern trends to develop innovative strategies tailored to your unique brand voice." },
-            { title: "Expert Team", desc: "Our diverse expert team ensures every aspect of your social media presence is crafted to absolute perfection." },
-            { title: "Distinct Brand Identity", desc: "We create a distinct brand identity that sets you apart from the competition and resonates with your audience." },
-            { title: "Engaging Content", desc: "We excel in engaging content, from compelling copy to stunning visuals that stop the scroll." },
-            { title: "Viral Reels", desc: "We create viral reels designed to spark curiosity, entertain, and massively boost your brand visibility." },
-            { title: "Optimized Conversions", desc: "We use automation tools to optimize conversion paths, ensuring your engagement turns into tangible results." }
+            { 
+                title: "Innovative Strategies", 
+                desc: "We don't follow trends; we predict them. Our strategies leverage psychological triggers and data-backed viral hooks to ensure your brand doesn't just reach people, but converts them into a loyal community." 
+            },
+            { 
+                title: "Expert Aesthetic Team", 
+                desc: "Our creative team consists of specialized editors, designers, and strategists who ensure every single frame of your content looks premium. We treat your social feed as a high-end digital storefront." 
+            },
+            { 
+                title: "Distinct Brand Identity", 
+                desc: "We build a consistent visual and verbal language for your brand. From specific color grading for your reels to a unique tone of voice in your captions, we make sure your brand is instantly recognizable." 
+            },
+            { 
+                title: "High-Retention Content", 
+                desc: "We focus on 'The Hook'—the first 3 seconds of a video. By mastering viewer retention, we beat the algorithm consistently and keep your audience engaged until the very end." 
+            },
+            { 
+                title: "Algorithm Mastery", 
+                desc: "Social media is shifting every day. We stay ahead of platform updates to optimize your posting times, hashtag strategies, and format choices for maximum organic reach." 
+            },
+            { 
+                title: "ROI-Focused Growth", 
+                desc: "At the end of the day, views mean nothing if they don't drive business. We optimize every campaign for conversions, whether that means website clicks, lead generation, or direct sales." 
+            }
         ];
 
         const faqContainer = document.getElementById('faq-container');
-        
         faqs.forEach((faq, index) => {
             const item = document.createElement('div');
             item.className = 'faq-item border border-gray-200/80 dark:border-white/10 bg-white dark:bg-[#1A1A1A] rounded-[1.5rem] overflow-hidden transition-colors duration-300';
-            
             item.innerHTML = `
                 <button class="faq-btn w-full flex items-center justify-between p-6 md:p-8 text-left focus:outline-none">
                     <span class="text-lg md:text-xl font-bold">${faq.title}</span>
@@ -570,35 +502,25 @@ I don't have to overthink Instagram anymore."</p>
             faqContainer.appendChild(item);
         });
 
-        // Re-init icons for the newly added FAQs
         lucide.createIcons();
-
-        // FAQ Interaction Logic
-        let activeFaqIndex = 0; // First one open by default matching React state
+        let activeFaqIndex = 0; 
 
         function updateFaqs() {
             const items = document.querySelectorAll('.faq-item');
             items.forEach((item, index) => {
-                const btn = item.querySelector('.faq-btn');
                 const content = item.querySelector('.faq-content');
                 const iconWrapper = item.querySelector('.faq-icon-wrapper');
-                const isDark = htmlEl.classList.contains('dark');
-                
                 if (index === activeFaqIndex) {
                     content.style.maxHeight = content.scrollHeight + "px";
                     content.style.opacity = '1';
                     iconWrapper.innerHTML = `<i data-lucide="minus" class="faq-icon w-4 h-4 text-white dark:text-[#111]"></i>`;
-                    
-                    // Highlight backgrounds based on theme
-                    item.classList.add('bg-[#FFD1DF]/40', 'dark:bg-[#FF6699]/10');
+                    item.classList.add('bg-blue-50', 'dark:bg-blue-900/10');
                     item.classList.remove('bg-white', 'dark:bg-[#1A1A1A]');
                 } else {
                     content.style.maxHeight = '0px';
                     content.style.opacity = '0';
                     iconWrapper.innerHTML = `<i data-lucide="plus" class="faq-icon w-4 h-4 text-white dark:text-[#111]"></i>`;
-                    
-                    // Reset backgrounds based on theme
-                    item.classList.remove('bg-[#FFD1DF]/40', 'dark:bg-[#FF6699]/10');
+                    item.classList.remove('bg-blue-50', 'dark:bg-blue-900/10');
                     item.classList.add('bg-white', 'dark:bg-[#1A1A1A]');
                 }
             });
@@ -612,13 +534,7 @@ I don't have to overthink Instagram anymore."</p>
             });
         });
 
-        // Initial FAQ setup
         updateFaqs();
-
-        // Listen for dark mode toggles to update FAQ background colors properly if one is open
-        const observer = new MutationObserver(() => updateFaqs());
-        observer.observe(htmlEl, { attributes: true, attributeFilter: ['class'] });
-
     </script>
 </body>
 </html>
